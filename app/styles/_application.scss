@@ -1,0 +1,79 @@
+$mid-blue: #2196F3;
+
+* {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body > .ember-view {
+  height: 100%;
+}
+
+#main-parent {
+  height: 100%;
+  @include display(flex);
+}
+
+.nav-players {
+  max-width: 320px;
+  min-width: 180px;
+  background: $mid-blue;
+  color: #fff;
+  @include display(flex);
+  @include flex(1);
+  @include flex-direction(column);
+
+  header {
+    background-color: darken($mid-blue, 5%);
+    min-height: 62px;
+  }
+
+  .logo {
+    font-size: 19px;
+    padding-top: 18px;
+    padding-left: 16px;
+    margin-bottom: 0;
+  }
+
+  .players {
+    @include flex(1);
+    overflow-y: auto;
+  }
+
+  li {
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    @include transition(all 0.1s);
+
+    &.new-player {
+      margin-top: 10px;
+      a {
+        color: rgba(255,255,255,0.5);
+      }
+    }
+
+    a {
+      color: #fff;
+      display: block;
+      padding: 20px 20px 20px 42px;
+    }
+  }
+}
+
+.player {
+  @include display(flex);
+  width: 100%;
+  @include flex(4.3);
+  min-width: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #f6f6f6;
+}
+
