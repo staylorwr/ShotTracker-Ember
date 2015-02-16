@@ -1,0 +1,17 @@
+<section class="new-player">
+  <div class="main player-new-welcome">
+    <h1>Create a new player</h1>
+    <h3>Add the players name and number below.</h3>
+  </div>
+  <div class="main player-create">
+    <form {{action 'savePlayer' on="submit"}}>
+      <h2 class="required">Name</h2>
+      {{input value=name placeholder="Name (Michael Jordan)"}}
+
+      <h2 class="required">Number</h2>
+      {{input value=number placeholder="Number (23)"}}
+
+      {{input type="submit" value="Save Player"}}
+    </form>
+  </div>
+</section>

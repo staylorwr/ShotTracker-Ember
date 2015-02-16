@@ -1,3 +1,23 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div id="main-parent">
+  <section class="nav-players">
+    <header>
+      <h1 class="logo">Shot Tracker</h1>
+    </header>
+    <ol class="players">
+      {{#each player in arrangedContent}}
+        <li>
+          {{#link-to 'players.show' player}}
+            {{player.number}} - {{player.name}}
+          {{/link-to}}
+        </li>
+      {{/each}}
+      <li class="new-player">
+        {{link-to 'New Player' 'players.new'}}
+      </li>
+    </ol>
+  </section>
 
-{{outlet}}
+  <section class="player">
+    {{outlet}}
+  </section>
+</div>

@@ -1,7 +1,16 @@
 $mid-blue: #2196F3;
+$mid-orange: #FF9800;
 
 * {
   @include box-sizing(border-box);
+}
+
+textarea,
+#{$all-text-inputs},
+select[multiple=multiple] {
+  padding: 14px 14px;
+  font-size: 16px;
+  margin-bottom: 21px;
 }
 
 html, body {
@@ -64,10 +73,21 @@ body > .ember-view {
       display: block;
       padding: 20px 20px 20px 42px;
     }
+
+    a.active {
+      background: lighten($mid-blue, 5%);
+      color: #fff;
+    }
   }
 }
 
-.player {
+.player .main {
+  margin-top: 60px;
+  padding: 0 10% 40px 5%;
+  min-width: 800px;
+}
+
+section.player {
   @include display(flex);
   width: 100%;
   @include flex(4.3);
@@ -75,5 +95,56 @@ body > .ember-view {
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: #f6f6f6;
+
+  >section:only-of-type {
+    max-width: 100%;
+  }
 }
 
+section.new-player {
+  position: relative;
+  background: #fdfdfd;
+  width: 100%;
+
+  h1 {
+    color: $mid-orange;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 0.1em;
+  }
+
+  h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 0.1em;
+
+    &.required:after {
+      color: #999999;
+      content: "\002A";
+      left: 1px;
+      position: relative;
+      top: -3px;
+    }
+  }
+
+  h3 {
+    color: #333;
+    font-size: 21px;
+    font-weight: normal;
+  }
+
+  .player-new-welcome {
+    background: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+    margin-top: 0;
+    padding-bottom: 50px;
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .player-create {
+    form {
+      max-width: 800px;
+    }
+  }
+}

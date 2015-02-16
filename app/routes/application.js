@@ -5,7 +5,6 @@ export default Ember.Route.extend({
     return this.store.find('player');
   },
 
-
   afterModel: function(players) {
     if(players.get('length') === 0) {
       return this.transitionTo('players.new');
