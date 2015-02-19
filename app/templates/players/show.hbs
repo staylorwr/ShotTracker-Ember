@@ -1,0 +1,47 @@
+<section class="show-player">
+  <div class="main player-header">
+    <h1>{{name}} - #{{number}}</h1>
+
+    <ul class="shot-stats">
+      <li>
+        <span class="number">{{totalPoints}}</span>
+        <span class="title">Points</span>
+      </li>
+      <li>
+        {{shot-fraction shotsArray=freeThrows}}
+        <span class="title">Free Throws</span>
+      </li>
+      <li>
+        {{shot-fraction shotsArray=fieldGoals}}
+        <span class="title">Field Goals</span>
+      </li>
+      <li>
+        {{shot-fraction shotsArray=threePointers}}
+        <span class="title">Three Pointers</span>
+      </li>
+    </ul>
+  </div>
+  <div class="main player-shot-log">
+    <div class="actions">
+      <div class="action-group">
+        <a class="made-button" {{action 'createShot' 'ft' true}}>Made FT</a>
+        <a class="missed-button" {{action 'createShot' 'ft' false}}>Missed FT</a>
+      </div>
+      <div class="action-group">
+        <a class="made-button" {{action 'createShot' 'fg' true}}>Made FG</a>
+        <a class="missed-button" {{action 'createShot' 'fg' false}}>Missed FG</a>
+      </div>
+      <div class="action-group">
+        <a class="made-button" {{action 'createShot' '3p' true}}>Made 3P</a>
+        <a class="missed-button" {{action 'createShot' '3p' false}}>Missed 3P</a>
+      </div>
+    </div>
+    <div class="shot-list">
+      {{#each shot in sortedShots}}
+        {{render 'shot.detail' shot}}
+      {{else}}
+        <div>No Shots Found</div>
+      {{/each}}
+    </div>
+  </div>
+</section>

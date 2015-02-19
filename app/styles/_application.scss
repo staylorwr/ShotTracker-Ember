@@ -101,7 +101,7 @@ section.player {
   }
 }
 
-section.new-player {
+section.new-player, section.show-player {
   position: relative;
   background: #fdfdfd;
   width: 100%;
@@ -133,7 +133,7 @@ section.new-player {
     font-weight: normal;
   }
 
-  .player-new-welcome {
+  .player-new-welcome, .player-header {
     background: #f6f6f6;
     border-bottom: 1px solid #ddd;
     margin-top: 0;
@@ -142,9 +142,72 @@ section.new-player {
     width: 100%;
   }
 
+  .player-header {
+    padding-bottom: 20px;
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+
   .player-create {
     form {
       max-width: 800px;
     }
   }
 }
+
+.shot-stats {
+  @include clearfix;
+  display: block;
+  background: #f1f1f1;
+  padding: 14px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  li {
+    display: block;
+    width: 25%;
+    float: left;
+    text-align: center;
+    span {
+      display: block;
+    }
+    .number {
+      font-size: 32px;
+      line-height: 32px;
+      color: #888;
+    }
+
+    .high-percent {
+      color: darken($light-green, 60);
+    }
+
+    .low-percent {
+      color: darken($light-red, 60);
+    }
+  }
+}
+
+.player-shot-log {
+  .actions {
+    @include clearfix;
+  }
+  .action-group {
+    width: 33%;
+    float: left;
+    text-align: center;
+
+    > a {
+      display: inline-block;
+    }
+  }
+}
+
+.made-button {
+  @include button('simple', $light-green);
+}
+
+.missed-button {
+  @include button('simple', $light-red);
+}
+
+

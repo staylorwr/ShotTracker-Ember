@@ -1,0 +1,13 @@
+<div>
+  <div class="text">
+    {{#if made}}
+      Made
+    {{else}}
+      Missed
+    {{/if}}
+    a {{shotTypeText}}
+  </div>
+  <div class="delete">
+    <a {{action 'deleteShot'}}>Delete</a>
+  </div>
+</div>
